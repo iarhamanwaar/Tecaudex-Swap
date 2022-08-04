@@ -7,9 +7,9 @@ module.exports = async function(deployer) {
   const token = await Token.deployed();
 
   // deploy smart contract
-  await deployer.deploy(TecaudexSwap);
+  await deployer.deploy(TecaudexSwap, token.address);
   const contract = await TecaudexSwap.deployed();
 
   // transfer all tokens to TecaudexSwap
-  await token.transfer(contract.address, '1000000000000000000000000')
+  await token.transfer(contract.address, '1000000000000000000000000');
 };
